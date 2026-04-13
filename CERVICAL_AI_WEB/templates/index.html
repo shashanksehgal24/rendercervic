@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cervical Cancer AI Screening</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(135deg,#000428,#004e92);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+.container{
+background:#0f0f0f;
+padding:40px;
+border-radius:15px;
+width:420px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+transition:0.3s;
+}
+
+.container:hover{
+box-shadow:0 0 25px #00aaff;
+}
+
+h1{
+margin-bottom:20px;
+color:#00aaff;
+}
+
+input[type=file]{
+margin:20px 0;
+padding:10px;
+border-radius:8px;
+border:none;
+background:#1b1b1b;
+color:white;
+width:100%;
+}
+
+button{
+background:#007BFF;
+border:none;
+padding:12px 25px;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#00aaff;
+transform:scale(1.05);
+box-shadow:0 0 10px #00aaff;
+}
+
+.result{
+margin-top:20px;
+font-size:22px;
+color:#00ffcc;
+}
+
+.confidence{
+margin-top:10px;
+font-size:18px;
+color:#00aaff;
+}
+
+.error{
+margin-top:20px;
+color:#ff4c4c;
+font-size:18px;
+}
+
+img{
+margin-top:20px;
+max-width:250px;
+border-radius:10px;
+border:2px solid #00aaff;
+transition:0.3s;
+}
+
+img:hover{
+transform:scale(1.05);
+}
+
+.footer{
+margin-top:25px;
+font-size:13px;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Cervical Cancer AI Screening</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+
+<button type="submit">Analyze Image</button>
+
+</form>
+
+{% if prediction %}
+<div class="result">
+Prediction: <b>{{prediction}}</b>
+</div>
+
+<div class="confidence">
+Confidence: {{confidence}} %
+</div>
+{% endif %}
+
+{% if error %}
+<div class="error">
+{{error}}
+</div>
+{% endif %}
+
+{% if img_path %}
+<img src="{{img_path}}">
+{% endif %}
+
+<div class="footer">
+AI Assisted Cervical Cytology Detection
+Project-by :- Shashank Sehgal
+</div>
+<a href="https://www.linkedin.com/in/shashanksehgal/">my Linkedin</a>
+</div>
+
+</body>
+</html>
